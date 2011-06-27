@@ -1,0 +1,33 @@
+%h1 Listing tasks
+
+%table
+  %tr
+    %th Name
+    %th Due at
+    %th Description
+    %th Parent
+    %th Importance
+    %th Urgency
+    %th Color
+    %th Completed at
+    %th
+    %th
+    %th
+
+  - @tasks.each do |task|
+    %tr
+      %td= task.name
+      %td= task.due_at
+      %td= task.description
+      %td= task.parent_id
+      %td= task.importance
+      %td= task.urgency
+      %td= task.color
+      %td= task.completed_at
+      %td= link_to 'Show', task
+      %td= link_to 'Edit', edit_task_path(task)
+      %td= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Task', new_task_path

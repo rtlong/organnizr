@@ -10,6 +10,36 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+      when /edit page for that task/
+        raise 'no task' unless @task
+        edit_task_path(@task)
+      when /page for that task/
+        raise 'no task' unless @task
+        task_path(@task)
+      when /edit page for the (\d+)(?:st|nd|rd|th) task/
+        raise 'no tasks' unless @tasks
+        nth_task = @tasks[$1.to_i - 1]
+        edit_task_path(nth_task)
+      when /page for the (\d+)(?:st|nd|rd|th) task/
+        raise 'no tasks' unless @tasks
+        nth_task = @tasks[$1.to_i - 1]
+        task_path(nth_task)
+
+      when /edit page for that task/
+        raise 'no task' unless @task
+        edit_task_path(@task)
+      when /page for that task/
+        raise 'no task' unless @task
+        task_path(@task)
+      when /edit page for the (\d+)(?:st|nd|rd|th) task/
+        raise 'no tasks' unless @tasks
+        nth_task = @tasks[$1.to_i - 1]
+        edit_task_path(nth_task)
+      when /page for the (\d+)(?:st|nd|rd|th) task/
+        raise 'no tasks' unless @tasks
+        nth_task = @tasks[$1.to_i - 1]
+        task_path(nth_task)
+
       when /edit page for that task list/
         raise 'no task list' unless @task_list
         edit_task_list_path(@task_list)

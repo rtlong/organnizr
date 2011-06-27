@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @task.name
+%p
+  %b Due at:
+  = @task.due_at
+%p
+  %b Description:
+  = @task.description
+%p
+  %b Parent:
+  = @task.parent_id
+%p
+  %b Importance:
+  = @task.importance
+%p
+  %b Urgency:
+  = @task.urgency
+%p
+  %b Color:
+  = @task.color
+%p
+  %b Completed at:
+  = @task.completed_at
+
+= link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Back', tasks_path
