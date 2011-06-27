@@ -65,6 +65,7 @@ GEM
       cucumber (>= 0.10.5)
       nokogiri (>= 1.4.4)
       rack-test (>= 0.5.7)
+    cucumber_scaffold (0.1.5)
     database_cleaner (0.6.7)
     diff-lcs (1.1.2)
     erubis (2.7.0)
@@ -213,6 +214,7 @@ DEPENDENCIES
   capybara (>= 1.0.0)
   coffee-script
   cucumber-rails
+  cucumber_scaffold
   database_cleaner (>= 0.6.7)
   factory_girl_rails (>= 1.1.beta1)
   haml-rails

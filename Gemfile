@@ -26,6 +26,7 @@ group :development do
 	gem 'awesome_print', :require => 'ap' # Console candy
 	gem 'ruby-debug19', :require => 'ruby-debug'
 	gem 'annotate' # Prints db schema tidbits in all the models, tests, and fixtures, also shows `rake routes` output in routes.rb
+  gem 'cucumber_scaffold' # https://github.com/andyw8/cucumber_scaffold
 end
 
 group :test, :development do
@@ -34,7 +35,7 @@ group :test, :development do
 	gem "rspec-rails", ">= 2.6.1"
 	gem "mongoid-rspec", ">= 1.4.4"
 	gem "factory_girl_rails", ">= 1.1.beta1"
-	gem 'jasmine' # Javascript testing tool using an RSpec-like structure
+  gem 'jasmine' # Javascript testing tool using an RSpec-like structure
 end
 
 group :test do
