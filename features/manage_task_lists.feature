@@ -7,43 +7,41 @@ Feature: Manage task lists
 
     Scenario: List all task lists
       Given the following task lists:
-        | name | description | parent id | default priority | color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 | 
+        | name | description | default priority | color |
+        | name 1 | description 1 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 |
       When I go to the task lists page
       Then I should see the following task lists:
-        | Name | Description | Parent id | Default priority | Color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 |
+        | Name | Description | Default priority | Color |
+        | name 1 | description 1 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 |
       And the heading should be "Listing task_lists"
-      
+
 
     Scenario: View a task list
       Given the following task lists:
-        | name | description | parent id | default priority | color |
-        | name 1 | description 1 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 |
-        | name 3 | description 3 | 13 | 13 | 13 |
+        | name | description | default priority | color |
+        | name 1 | description 1 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 |
       When I go to the task lists page
       And I click "Show" in the 2nd row
       Then I should see the following task list:
         | Name: | name 2 |
         | Description: | description 2 |
-        | Parent: | 12 |
         | Default priority: | 12 |
         | Color: | 12 |
-                  
+
       When I follow "Back"
-      
+
       Then I should be on the task lists page
 
     Scenario: Edit a task list
       Given the following task list:
         | name | name 10 |
         | description | description 10 |
-        | parent_id | 20 |
         | default_priority | 20 |
         | color | 20 |
       When I go to the page for that task list
@@ -51,34 +49,33 @@ Feature: Manage task lists
       Then I should see the following form field values:
         | Name | name 10 |
         | Description | description 10 |
-        | Parent | 20 |
         | Default priority | 20 |
         | Color | 20 |
       Then the heading should be "Editing task_list"
-      
+
       When I follow "Show"
       Then I should be on the page for that task list
 
     Scenario: Delete a task list via the index page
       Given the following task lists:
-        | name | description | parent id | default priority | color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 |
+        | name | description | default priority | color |
+        | name 1 | description 1 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 |
       When I go to the task lists page
       And I click "Destroy" in the 2nd row
       Then I should see the following task lists:
-        | Name | Description | Parent id | Default priority | Color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 
-        | name 3 | description 3 | 13 | 13 | 13 |
+        | Name | Description | Default priority | Color |
+        | name 1 | description 1 | 11 | 11 |
+        | name 3 | description 3 | 13 | 13 |
       And I should be on the task lists page
-      
-    
-    Scenario: New task list page  
+
+
+    Scenario: New task list page
       Given I am on the task lists page
       When I follow "New Task list"
       Then I should be on the new task list page
-      
+
       When I follow "Back"
       Then I should be on the task lists page
 
@@ -88,7 +85,6 @@ Feature: Manage task lists
       # When I fill in the form with:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Default priority | 20 |
         # | Color | 20 |
       # And I press "Create"
@@ -96,7 +92,6 @@ Feature: Manage task lists
       # And I should see the following task list:
       #   | Name: | name 10 |
         # | Description: | description 10 |
-        # | Parent: | 20 |
         # | Default priority: | 20 |
         # | Color: | 20 |
 
@@ -107,7 +102,6 @@ Feature: Manage task lists
       # When I fill in the form with:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Default priority | 20 |
         # | Color | 20 |
       # And I press "Create"
@@ -118,7 +112,6 @@ Feature: Manage task lists
       # And I should see the following form field values:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Default priority | 20 |
         # | Color | 20 |
 
@@ -130,7 +123,6 @@ Feature: Manage task lists
       # And I fill in the form with:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Default priority | 20 |
         # | Color | 20 |
       # And I press "Update"
@@ -141,7 +133,6 @@ Feature: Manage task lists
       # And I should see the following form field values:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Default priority | 20 |
         # | Color | 20 |
 
@@ -149,32 +140,29 @@ Feature: Manage task lists
       Given the following task list:
         | name | name 10 |
         | description | description 10 |
-        | parent_id | 20 |
         | default_priority | 20 |
         | color | 20 |
       When I go to the edit page for that task list
       And I fill in the form with:
         | Name | name 10 updated |
         | Description | description 10 updated |
-        | Parent | -20 |
         | Default priority | -20 |
-        | Color | -20 | 
+        | Color | -20 |
       And I press "Update"
       Then I should be on the page for that task list
       And I should see "Task list was successfully updated."
       And I should see the following task list:
         | Name: | name 10 updated |
         | Description: | description 10 updated |
-        | Parent: | -20 |
         | Default priority: | -20 |
         | Color: | -20 |
 
     Scenario: Navigate from task lists page to the edit task list page
       Given the following task lists:
-        | name | description | parent id | default priority | color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 |
+        | name | description | default priority | color |
+        | name 1 | description 1 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 |
       When I go to the task lists page
       And I click "Edit" in the 2nd row
       Then I should be on the edit page for the 2nd task list

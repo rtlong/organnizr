@@ -7,44 +7,42 @@ Feature: Manage tasks
 
     Scenario: List all tasks
       Given the following tasks:
-        | name | description | parent id | importance | urgency | color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 | 13 | 
+        | name | description | importance | urgency | color |
+        | name 1 | description 1 | 11 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 | 13 |
       When I go to the tasks page
       Then I should see the following tasks:
-        | Name | Description | Parent id | Importance | Urgency | Color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 | 13 |
+        | Name | Description | Importance | Urgency | Color |
+        | name 1 | description 1 | 11 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 | 13 |
       And the heading should be "Listing tasks"
-      
+
 
     Scenario: View a task
       Given the following tasks:
-        | name | description | parent id | importance | urgency | color |
-        | name 1 | description 1 | 11 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 12 |
-        | name 3 | description 3 | 13 | 13 | 13 | 13 |
+        | name | description | importance | urgency | color |
+        | name 1 | description 1 | 11 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 | 13 |
       When I go to the tasks page
       And I click "Show" in the 2nd row
       Then I should see the following task:
         | Name: | name 2 |
         | Description: | description 2 |
-        | Parent: | 12 |
         | Importance: | 12 |
         | Urgency: | 12 |
         | Color: | 12 |
-                  
+
       When I follow "Back"
-      
+
       Then I should be on the tasks page
 
     Scenario: Edit a task
       Given the following task:
         | name | name 10 |
         | description | description 10 |
-        | parent_id | 20 |
         | importance | 20 |
         | urgency | 20 |
         | color | 20 |
@@ -53,35 +51,34 @@ Feature: Manage tasks
       Then I should see the following form field values:
         | Name | name 10 |
         | Description | description 10 |
-        | Parent | 20 |
         | Importance | 20 |
         | Urgency | 20 |
         | Color | 20 |
       Then the heading should be "Editing task"
-      
+
       When I follow "Show"
       Then I should be on the page for that task
 
     Scenario: Delete a task via the index page
       Given the following tasks:
-        | name | description | parent id | importance | urgency | color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 | 13 |
+        | name | description | importance | urgency | color |
+        | name 1 | description 1 | 11 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 | 13 |
       When I go to the tasks page
       And I click "Destroy" in the 2nd row
       Then I should see the following tasks:
-        | Name | Description | Parent id | Importance | Urgency | Color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 11 | 
-        | name 3 | description 3 | 13 | 13 | 13 | 13 |
+        | Name | Description | Importance | Urgency | Color |
+        | name 1 | description 1 | 11 | 11 | 11 |
+        | name 3 | description 3 | 13 | 13 | 13 |
       And I should be on the tasks page
-      
-    
-    Scenario: New task page  
+
+
+    Scenario: New task page
       Given I am on the tasks page
       When I follow "New Task"
       Then I should be on the new task page
-      
+
       When I follow "Back"
       Then I should be on the tasks page
 
@@ -91,7 +88,6 @@ Feature: Manage tasks
       # When I fill in the form with:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Importance | 20 |
         # | Urgency | 20 |
         # | Color | 20 |
@@ -100,7 +96,6 @@ Feature: Manage tasks
       # And I should see the following task:
       #   | Name: | name 10 |
         # | Description: | description 10 |
-        # | Parent: | 20 |
         # | Importance: | 20 |
         # | Urgency: | 20 |
         # | Color: | 20 |
@@ -112,7 +107,6 @@ Feature: Manage tasks
       # When I fill in the form with:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Importance | 20 |
         # | Urgency | 20 |
         # | Color | 20 |
@@ -124,7 +118,6 @@ Feature: Manage tasks
       # And I should see the following form field values:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Importance | 20 |
         # | Urgency | 20 |
         # | Color | 20 |
@@ -137,7 +130,6 @@ Feature: Manage tasks
       # And I fill in the form with:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Importance | 20 |
         # | Urgency | 20 |
         # | Color | 20 |
@@ -149,7 +141,6 @@ Feature: Manage tasks
       # And I should see the following form field values:
       #   | Name | name 10 |
         # | Description | description 10 |
-        # | Parent | 20 |
         # | Importance | 20 |
         # | Urgency | 20 |
         # | Color | 20 |
@@ -158,7 +149,6 @@ Feature: Manage tasks
       Given the following task:
         | name | name 10 |
         | description | description 10 |
-        | parent_id | 20 |
         | importance | 20 |
         | urgency | 20 |
         | color | 20 |
@@ -166,27 +156,25 @@ Feature: Manage tasks
       And I fill in the form with:
         | Name | name 10 updated |
         | Description | description 10 updated |
-        | Parent | -20 |
         | Importance | -20 |
         | Urgency | -20 |
-        | Color | -20 | 
+        | Color | -20 |
       And I press "Update"
       Then I should be on the page for that task
       And I should see "Task was successfully updated."
       And I should see the following task:
         | Name: | name 10 updated |
         | Description: | description 10 updated |
-        | Parent: | -20 |
         | Importance: | -20 |
         | Urgency: | -20 |
         | Color: | -20 |
 
     Scenario: Navigate from tasks page to the edit task page
       Given the following tasks:
-        | name | description | parent id | importance | urgency | color | 
-        | name 1 | description 1 | 11 | 11 | 11 | 11 | 
-        | name 2 | description 2 | 12 | 12 | 12 | 12 | 
-        | name 3 | description 3 | 13 | 13 | 13 | 13 |
+        | name | description | importance | urgency | color |
+        | name 1 | description 1 | 11 | 11 | 11 |
+        | name 2 | description 2 | 12 | 12 | 12 |
+        | name 3 | description 3 | 13 | 13 | 13 |
       When I go to the tasks page
       And I click "Edit" in the 2nd row
       Then I should be on the edit page for the 2nd task
