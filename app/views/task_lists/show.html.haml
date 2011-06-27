@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @task_list.name
+%p
+  %b Due at:
+  = @task_list.due_at
+%p
+  %b Description:
+  = @task_list.description
+%p
+  %b Parent:
+  = @task_list.parent_id
+%p
+  %b Default priority:
+  = @task_list.default_priority
+%p
+  %b Color:
+  = @task_list.color
+
+= link_to 'Edit', edit_task_list_path(@task_list)
+\|
+= link_to 'Back', task_lists_path

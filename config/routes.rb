@@ -1,4 +1,6 @@
 OrganizerRtlongCom::Application.routes.draw do
+  resources :task_lists
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
