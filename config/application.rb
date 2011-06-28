@@ -11,7 +11,7 @@ require "active_resource/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module OrganizerRtlongCom
+module Organizer
   class Application < Rails::Application
 
     # don't generate RSpec tests for views and helpers
@@ -23,6 +23,9 @@ module OrganizerRtlongCom
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # Tell Mongoid NOT to pre-load all models before every request.
+    config.mongoid.preload_models = false
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)

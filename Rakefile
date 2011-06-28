@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-OrganizerRtlongCom::Application.load_tasks
+Organizer::Application.load_tasks

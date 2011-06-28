@@ -1,4 +1,4 @@
-OrganizerRtlongCom::Application.routes.draw do
+Organizer::Application.routes.draw do
   resources :tasks
 
   resources :task_lists
