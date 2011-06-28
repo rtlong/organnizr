@@ -62,3 +62,4 @@ tmp/*
 
 # vim artifacts
 **.swp
+public/stylesheets/
