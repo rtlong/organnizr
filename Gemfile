@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', ' ~> 3.1.0'
 
 # Use MongoDB instead of a relational database
 gem "mongoid", ">= 2.0.2"
 
 # Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails', "~> 3.1.0"
 gem 'compass'
 gem 'haml-rails'
 gem 'coffee-script'
@@ -42,3 +42,39 @@ group :test do
 	gem "database_cleaner", ">= 0.6.7"
 	gem "launchy", ">= 0.4.0"
 end
+
+########
+# Gems only for certain operating system environments.
+#
+# Avoid installing those which you don't need by adding, for example, `--without windows linux`
+# to your `bundle install` command. You should only need do this once, as it will be remembered.q
+
+# Mac OS X
+group :darwin do
+
+  # The filesystem event and system notifications that Guard wants, for OS X
+  gem 'growl_notify', :require => false # Growl notifications
+  gem 'rb-fsevent',   :require => false # FSEvent support
+
+end
+
+# Linux
+group :linux do
+
+  # The filesystem event and system notifications that Guard wants, for Linux/Unix
+  gem 'libnotify',    :require => false # Visual notifications
+  gem 'rb-inotify',   :require => false # inotify support
+
+end
+
+# Windows; commented out until we need them
+=begin
+group :windows do
+
+  # The filesystem event and system notifications that Guard wants, for Windows
+  gem 'rb-notifu',    :require => false # Visual notifications
+  gem 'rb-fchange',   :require => false # Directory Change Notification support
+  gem 'win32console', :require => false # Support for console colors
+
+end
+=end
